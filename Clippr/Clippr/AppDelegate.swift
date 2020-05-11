@@ -10,12 +10,14 @@ import Cocoa
 import Carbon
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     @IBOutlet weak var window: NSWindow!
     var windowController: WindowController?
+    var menuItem: MenuItem?
     var hotKey: EventHotKeyRef?
     var pressed: Bool = false
+    @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard()
 
     func registerShortcut() {
         let hotKeyID = EventHotKeyID(signature: "clip", id: FourCharCode("clip"))
@@ -40,6 +42,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             } else {
                 delegate.windowController?.moveDown(nil)
             }
+            if let updatedClipboard = delegate.windowController?.clipboard {
+                delegate.clipboard = updatedClipboard
+            }
             NSApp.activate(ignoringOtherApps: true)
             return noErr
         }, 1, &hotKeyPressedSpec, nil, &eventHandlerRef)
@@ -55,7 +60,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.accessory)
         
         windowController = WindowController(windowNibName: "Window")
-        windowController?.clipboard = Clipboard()
+        windowController?.clipboard = clipboard
+        
+        menuItem = MenuItem()
+        menuItem?.openHandler = { [weak self] in
+            guard let self = self else { return }
+            NSApp.setActivationPolicy(.regular)
+            
+            self.window.makeKeyAndOrderFront(nil)
+        }
+        
+        menuItem?.clipboardHandler = { [weak self] in
+            guard let self = self else { return }
+            
+            self.windowController?.openWindowAtCenter()
+        }
+        menuItem?.install()
+        
         setupShortcut()
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
     }
 }

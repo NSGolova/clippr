@@ -9,7 +9,10 @@
 import Cocoa
 import Carbon
 
-class Clipboard: NSObject {
+class Clipboard: NSObject, Codable {
+    private enum CodingKeys : String, CodingKey {
+        case items
+    }
     @objc dynamic var items = [ClipboardItem]()
     var lastChangeCount = 0
     
@@ -17,11 +20,28 @@ class Clipboard: NSObject {
     
     override init() {
         super.init()
+
+        lastChangeCount = pasteboard.changeCount
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.checkPastebord()
+        }
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.items = try container.decode([ClipboardItem].self, ofFamily: NSPasteboard.PasteboardType.self, forKey: .items)
+        
+        super.init()
         
         lastChangeCount = pasteboard.changeCount
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.checkPastebord()
         }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items, forKey: .items)
     }
     
     func checkPastebord() {
@@ -49,7 +69,7 @@ class Clipboard: NSObject {
         }
         
         if let item = item {
-            items.append(item)
+            items.insert(item, at: 0)
         }
         
         lastChangeCount = pasteboard.changeCount

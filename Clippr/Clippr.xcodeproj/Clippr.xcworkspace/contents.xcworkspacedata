@@ -10,7 +10,11 @@
    <FileRef
       location = "group:../../.github/workflows/main.yml">
    </FileRef>
+   <Group
+      location = "group:.."
+      name = "Github">
+   </Group>
    <FileRef
-      location = "self:">
+      location = "container:">
    </FileRef>
 </Workspace>
