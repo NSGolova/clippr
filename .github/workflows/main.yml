@@ -21,15 +21,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
+    
     - name: Build
-      run: xcodebuild build -scheme Clippr -derivedDataPath ci_build -configuration Release
+      run: xcodebuild build -project Clippr/Clippr.xcodeproj -scheme Clippr -derivedDataPath ci_build -configuration Release
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        # Artifact name
         name: Clippr
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ci_build/Release/Clippr.app
+        path: ci_build/Build/Products/Release/Clippr.app
