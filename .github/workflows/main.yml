@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Build
-      run: xcodebuild build -project Clippr/Clippr.xcodeproj -scheme Clippr -derivedDataPath ci_build -configuration Release
+      run: xcodebuild build -workspace Clippr/Clippr.xcworkspace -scheme Clippr -derivedDataPath ci_build -configuration Release
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2

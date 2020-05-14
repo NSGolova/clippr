@@ -29,7 +29,7 @@ class Clipboard: NSObject, Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.items = try container.decode([ClipboardItem].self, ofFamily: NSPasteboard.PasteboardType.self, forKey: .items)
+        self.items = try container.decode([ClipboardItem].self, ofFamily: ClipboardItem.ItemType.self, forKey: .items)
         
         super.init()
         
@@ -47,29 +47,9 @@ class Clipboard: NSObject, Codable {
     func checkPastebord() {
         guard pasteboard.changeCount > lastChangeCount,
               let currentRunningApp = (NSWorkspace.shared.runningApplications.first { $0.isActive }) else { return }
-
-        var item: ClipboardItem? = nil
-
-        if pasteboard.canReadObject(forClasses: [NSImage.self], options: nil) {
-            if let data = pasteboard.data(forType: .tiff),
-               let image = NSImage(data: data),
-               let name = pasteboard.string(forType: .string) {
-                item = ImageClipboardItem(name: name, image: image, source: currentRunningApp)
-            }
-        } else if pasteboard.canReadObject(forClasses: [NSAttributedString.self], options: nil) {
-            if let data = pasteboard.data(forType: .rtf),
-               let string = NSAttributedString(rtf: data, documentAttributes: nil),
-               let name = pasteboard.string(forType: .string) {
-                item = RTFClipboardItem(name: name, attributedString: string, source: currentRunningApp)
-            }
-        } else if pasteboard.canReadObject(forClasses: [NSString.self], options: nil) {
-            if let name = pasteboard.string(forType: .string) {
-                item = ClipboardItem(name: name, type: nil, source: currentRunningApp)
-            }
-        }
         
-        if let item = item {
-            items.insert(item, at: 0)
+        for item in pasteboard.pasteboardItems ?? [] {
+            items.insert(ClipboardItem.itemClass(for: item.types).init(item: item, source: currentRunningApp), at: 0)
         }
         
         lastChangeCount = pasteboard.changeCount
@@ -77,8 +57,7 @@ class Clipboard: NSObject, Codable {
     
     func paste(item: ClipboardItem) {
         lastChangeCount += 1
-        pasteboard.declareTypes([item.type], owner: nil)
-        pasteboard.setData(item.data, forType: item.type)
+        pasteboard.write(item: item)
 
         let sourceRef = CGEventSource(stateID: .combinedSessionState)
         if sourceRef == nil {

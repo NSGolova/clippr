@@ -12,6 +12,9 @@
 		B90DD4422469EF7300DB7FDC /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4412469EF7300DB7FDC /* Defaults.swift */; };
 		B90DD4442469F60700DB7FDC /* ItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4432469F60700DB7FDC /* ItemSource.swift */; };
 		B90DD446246A02B300DB7FDC /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD445246A02B300DB7FDC /* Coding.swift */; };
+		B9A49975246CC154002E02BB /* NSPasteboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */; };
+		B9E0CA54246A37ED00A85AF8 /* FileClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E0CA53246A37ED00A85AF8 /* FileClipboardItem.swift */; };
+		B9F10A90246B033800A6331E /* ColorClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F10A8F246B033800A6331E /* ColorClipboardItem.swift */; };
 		B9F859ED246833AD00A3636A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F859EC246833AD00A3636A /* AppDelegate.swift */; };
 		B9F859EF246833AE00A3636A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F859EE246833AE00A3636A /* Assets.xcassets */; };
 		B9F859F2246833AE00A3636A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F859F0246833AE00A3636A /* MainMenu.xib */; };
@@ -49,6 +52,9 @@
 		B90DD4412469EF7300DB7FDC /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		B90DD4432469F60700DB7FDC /* ItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSource.swift; sourceTree = "<group>"; };
 		B90DD445246A02B300DB7FDC /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
+		B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Extensions.swift"; sourceTree = "<group>"; };
+		B9E0CA53246A37ED00A85AF8 /* FileClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileClipboardItem.swift; sourceTree = "<group>"; };
+		B9F10A8F246B033800A6331E /* ColorClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorClipboardItem.swift; sourceTree = "<group>"; };
 		B9F859E9246833AD00A3636A /* Clippr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clippr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F859EC246833AD00A3636A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F859EE246833AE00A3636A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				B90DD4362469B8D700DB7FDC /* FourCharCode+Extensions.swift */,
+				B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 			children = (
 				B9F85A19246834C000A3636A /* ClipboardItem.swift */,
 				B9F85A1D2468370800A3636A /* ImageClipboardItem.swift */,
+				B9E0CA53246A37ED00A85AF8 /* FileClipboardItem.swift */,
+				B9F10A8F246B033800A6331E /* ColorClipboardItem.swift */,
 				B9F85A1F24683BC600A3636A /* RTFClipboardItem.swift */,
 				B90DD4432469F60700DB7FDC /* ItemSource.swift */,
 			);
@@ -331,6 +340,7 @@
 				B90DD4372469B8D700DB7FDC /* FourCharCode+Extensions.swift in Sources */,
 				B9F85A2024683BC600A3636A /* RTFClipboardItem.swift in Sources */,
 				B9F859ED246833AD00A3636A /* AppDelegate.swift in Sources */,
+				B9F10A90246B033800A6331E /* ColorClipboardItem.swift in Sources */,
 				B90DD446246A02B300DB7FDC /* Coding.swift in Sources */,
 				B9F85A172468341600A3636A /* KeyWindow.swift in Sources */,
 				B9F85A242468865900A3636A /* WindowController.swift in Sources */,
@@ -339,7 +349,9 @@
 				B90DD4422469EF7300DB7FDC /* Defaults.swift in Sources */,
 				B9F85A1A246834C000A3636A /* ClipboardItem.swift in Sources */,
 				B9F85A1E2468370800A3636A /* ImageClipboardItem.swift in Sources */,
+				B9E0CA54246A37ED00A85AF8 /* FileClipboardItem.swift in Sources */,
 				B90DD4442469F60700DB7FDC /* ItemSource.swift in Sources */,
+				B9A49975246CC154002E02BB /* NSPasteboard+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
