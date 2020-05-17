@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="IntroViewController" customModule="Clippr" customModuleProvider="target">
+            <connections>
+                <outlet property="animationView" destination="dxF-xG-5W6" id="KDs-I8-8a3"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1289" height="720"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="dxF-xG-5W6" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="0.0" width="1289" height="720"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hCJ-aI-VVM">
+                            <rect key="frame" x="571" y="17" width="147" height="63"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="143" id="EJF-yr-HXM"/>
+                                <constraint firstAttribute="height" constant="58" id="Gmb-qv-0zZ"/>
+                            </constraints>
+                            <buttonCell key="cell" type="bevel" title="ready" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="47C-h0-r4W">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="21"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="next:" target="-2" id="6as-ZW-QNs"/>
+                                <binding destination="-2" name="hidden" keyPath="showNextButton" id="qpJ-hx-1OU">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fsj-gH-lMJ">
+                            <rect key="frame" x="145" y="191" width="386" height="67"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" id="FPQ-3e-fRA"/>
+                                <constraint firstAttribute="width" constant="382" id="fDW-6k-5Yv"/>
+                            </constraints>
+                            <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" editable="YES" placeholderString="Writable field" allowsEditingTextAttributes="YES" id="R08-ub-uEs">
+                                <font key="font" metaFont="system" size="36"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="hidden" keyPath="showNextButton" id="BHM-ER-p1O">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Fsj-gH-lMJ" secondAttribute="bottom" constant="191" id="3dw-wj-W06"/>
+                        <constraint firstItem="hCJ-aI-VVM" firstAttribute="centerX" secondItem="dxF-xG-5W6" secondAttribute="centerX" id="99A-4f-4mw"/>
+                        <constraint firstAttribute="bottom" secondItem="hCJ-aI-VVM" secondAttribute="bottom" constant="20" id="OF2-0j-773"/>
+                        <constraint firstItem="Fsj-gH-lMJ" firstAttribute="leading" secondItem="dxF-xG-5W6" secondAttribute="leading" constant="147" id="oFM-Tp-6IF"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="intro"/>
+                    </userDefinedRuntimeAttributes>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="dxF-xG-5W6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="diV-K8-q0q"/>
+                <constraint firstAttribute="bottom" secondItem="dxF-xG-5W6" secondAttribute="bottom" id="hCB-Zt-nXO"/>
+                <constraint firstItem="dxF-xG-5W6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="mH0-dx-VxH"/>
+                <constraint firstAttribute="trailing" secondItem="dxF-xG-5W6" secondAttribute="trailing" id="wFu-H8-P84"/>
+            </constraints>
+            <point key="canvasLocation" x="138.5" y="154"/>
+        </customView>
+    </objects>
+</document>

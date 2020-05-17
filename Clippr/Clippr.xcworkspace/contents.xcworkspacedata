@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "container:Clippr.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../lottie/Lottie.xcodeproj">
+   </FileRef>
    <Group
       location = "group:"
       name = "Github">
@@ -11,7 +17,4 @@
          location = "group:../.github/workflows/main.yml">
       </FileRef>
    </Group>
-   <FileRef
-      location = "container:Clippr.xcodeproj">
-   </FileRef>
 </Workspace>

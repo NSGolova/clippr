@@ -12,12 +12,27 @@ import Carbon
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var window: NSWindow! {
+        didSet {
+            window.styleMask.insert(.fullSizeContentView)
+            window.styleMask.insert(.titled)
+            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+            window.standardWindowButton(.zoomButton)?.isHidden = true
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+        }
+    }
     var windowController: WindowController?
     var menuItem: MenuItem?
     var hotKey: EventHotKeyRef?
     var pressed: Bool = false
+    
     @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard()
+    //@DefaultsStored("introShown")
+    @objc dynamic var introShown = false
+    
+    var introViewController: IntroViewController?
+    lazy var mainViewController = MainViewController()
 
     func registerShortcut() {
         let hotKeyID = EventHotKeyID(signature: "clip", id: FourCharCode("clip"))
@@ -64,10 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         menuItem = MenuItem()
         menuItem?.openHandler = { [weak self] in
-            guard let self = self else { return }
-            NSApp.setActivationPolicy(.regular)
-            
-            self.window.makeKeyAndOrderFront(nil)
+            self?.handleOpen()
         }
         
         menuItem?.clipboardHandler = { [weak self] in
@@ -78,6 +90,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         menuItem?.install()
         
         setupShortcut()
+        
+        if !introShown {
+            handleOpen()
+        }
+    }
+    
+    func handleOpen() {
+        NSApp.setActivationPolicy(.regular)
+        
+        window.makeKeyAndOrderFront(nil)
+        
+        if !introShown {
+            introViewController = IntroViewController()
+            introViewController?.completion = { [weak self] in
+                guard let self = self else { return }
+                
+                self.introShown = true
+                self.introViewController = nil
+                self.handleOpen()
+            }
+            window.contentViewController = introViewController
+        } else {
+            window.contentViewController = mainViewController
+        }
     }
     
     func windowWillClose(_ notification: Notification) {

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Clippr" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kk9-nY-av8">
+                    <rect key="frame" x="18" y="222" width="444" height="18"/>
+                    <buttonCell key="cell" type="check" title="Start on login (To make sure I cant miss your copies)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QaS-Tn-VrK">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3XM-ia-baV">
+                    <rect key="frame" x="216" y="249" width="48" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Clippr" id="7Rr-cq-uQz">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bfA-uk-3dM">
+                    <rect key="frame" x="19" y="148" width="443" height="18"/>
+                    <buttonCell key="cell" type="radio" title="Save to preferences" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ytu-SY-xdA">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ekF-ZX-Etb">
+                    <rect key="frame" x="19" y="124" width="89" height="18"/>
+                    <buttonCell key="cell" type="radio" title="Save to file" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Pl7-uf-9rc">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tte-zB-aY3">
+                    <rect key="frame" x="18" y="173" width="444" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="History saving" id="rue-Ft-qrR">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R6y-Is-Gac">
+                    <rect key="frame" x="124" y="125" width="32" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="path" id="TRj-AX-iFB">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ksC-bw-Fbr">
+                    <rect key="frame" x="168" y="116" width="87" height="32"/>
+                    <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qE1-d9-jQy">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ekF-ZX-Etb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="3Pg-zd-KAX"/>
+                <constraint firstItem="R6y-Is-Gac" firstAttribute="leading" secondItem="ekF-ZX-Etb" secondAttribute="trailing" constant="20" id="3ms-4N-lV4"/>
+                <constraint firstAttribute="trailing" secondItem="bfA-uk-3dM" secondAttribute="trailing" constant="20" id="5jk-kL-DT2"/>
+                <constraint firstItem="Tte-zB-aY3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="NAh-Jh-rvt"/>
+                <constraint firstItem="Tte-zB-aY3" firstAttribute="top" secondItem="Kk9-nY-av8" secondAttribute="bottom" constant="35" id="UCE-ly-goo"/>
+                <constraint firstItem="ksC-bw-Fbr" firstAttribute="leading" secondItem="R6y-Is-Gac" secondAttribute="trailing" constant="20" id="VED-JR-gWs"/>
+                <constraint firstItem="bfA-uk-3dM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Z46-eB-DfC"/>
+                <constraint firstAttribute="trailing" secondItem="Tte-zB-aY3" secondAttribute="trailing" constant="20" id="aC9-Ue-Xd7"/>
+                <constraint firstItem="bfA-uk-3dM" firstAttribute="top" secondItem="Tte-zB-aY3" secondAttribute="bottom" constant="8" id="dSZ-Fs-Ghv"/>
+                <constraint firstItem="Kk9-nY-av8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="f3p-rd-9cj"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ksC-bw-Fbr" secondAttribute="trailing" constant="20" id="g81-ti-omQ"/>
+                <constraint firstItem="ksC-bw-Fbr" firstAttribute="centerY" secondItem="R6y-Is-Gac" secondAttribute="centerY" id="k9B-hB-PW6"/>
+                <constraint firstItem="ekF-ZX-Etb" firstAttribute="top" secondItem="bfA-uk-3dM" secondAttribute="bottom" constant="8" id="lhY-ZD-g2l"/>
+                <constraint firstItem="Kk9-nY-av8" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="34" id="mpm-LM-vYv"/>
+                <constraint firstAttribute="trailing" secondItem="Kk9-nY-av8" secondAttribute="trailing" constant="20" id="n2O-Bx-KHi"/>
+                <constraint firstItem="R6y-Is-Gac" firstAttribute="centerY" secondItem="ekF-ZX-Etb" secondAttribute="centerY" id="oLL-sE-QSR"/>
+                <constraint firstItem="3XM-ia-baV" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="vbv-TF-ZlL"/>
+                <constraint firstItem="3XM-ia-baV" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="4" id="vnf-mr-EM5"/>
+            </constraints>
+            <point key="canvasLocation" x="-51" y="89"/>
+        </customView>
+    </objects>
+</document>
