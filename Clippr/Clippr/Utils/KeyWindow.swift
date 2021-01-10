@@ -12,3 +12,10 @@ class KeyWindow: NSWindow {
     override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { true }
 }
+
+class KeylessWindow: NSWindow {
+    var ableToKey = false
+    
+    override var canBecomeKey: Bool { ableToKey }
+    override var canBecomeMain: Bool { ableToKey }
+}

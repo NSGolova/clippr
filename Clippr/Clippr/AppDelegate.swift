@@ -27,9 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var hotKey: EventHotKeyRef?
     var pressed: Bool = false
     
-    @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard()
-    //@DefaultsStored("introShown")
-    @objc dynamic var introShown = false
+    @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard(items: ClipboardItem.defaultItems)
+    @DefaultsStored("introShown") @objc dynamic var introShown = false
     
     var introViewController: IntroViewController?
     lazy var mainViewController = MainViewController()
@@ -101,7 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         window.makeKeyAndOrderFront(nil)
         
-        if !introShown {
+        if !introShown || !AXIsProcessTrusted() {
             introViewController = IntroViewController()
             introViewController?.completion = { [weak self] in
                 guard let self = self else { return }

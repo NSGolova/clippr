@@ -8,6 +8,17 @@
 
 import Foundation
 
+@objc
+enum SavingMethod: Int, Codable {
+    case preferences = 1
+    case file = 2
+}
+
+class Preferences: NSObject {
+    @DefaultsStored("savingMethod")
+    @objc dynamic static var savingMethod = SavingMethod.preferences
+}
+
 @propertyWrapper
 struct DefaultsStored<T: Codable> {
     let key: String

@@ -32,19 +32,29 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bfA-uk-3dM">
+                <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="bfA-uk-3dM">
                     <rect key="frame" x="19" y="148" width="443" height="18"/>
                     <buttonCell key="cell" type="radio" title="Save to preferences" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ytu-SY-xdA">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="saveToPreferences" id="kBu-mY-1UI"/>
+                    </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ekF-ZX-Etb">
+                <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="ekF-ZX-Etb">
                     <rect key="frame" x="19" y="124" width="89" height="18"/>
                     <buttonCell key="cell" type="radio" title="Save to file" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Pl7-uf-9rc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="saveToPreferences" id="3VD-F3-LxN">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tte-zB-aY3">
                     <rect key="frame" x="18" y="173" width="444" height="16"/>

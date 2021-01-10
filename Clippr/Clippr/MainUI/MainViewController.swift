@@ -9,10 +9,32 @@
 import Cocoa
 
 class MainViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+    
+    @objc dynamic var saveToPreferences: Bool {
+        get {
+            Preferences.savingMethod == .preferences
+        }
+        set {
+            if newValue {
+                Preferences.savingMethod = .preferences
+            } else {
+                Preferences.savingMethod = .file
+            }
+        }
     }
     
+    @objc
+    func keyPathsForValuesAffectingSaveToPreferences() -> Set<String> { ["Preferences.savingMethod"] }
+    
+    var keylessWindow: KeylessWindow? { view.window as? KeylessWindow }
+    
+    override func viewDidAppear() {
+        keylessWindow?.ableToKey = false
+    }
+    
+//    @IBAction func changeSavingMethod(_ sender: NSButton) {
+//        if let savingMethod = SavingMethod(rawValue: sender.tag) {
+//            Preferences.savingMethod = savingMethod
+//        }
+//    }
 }

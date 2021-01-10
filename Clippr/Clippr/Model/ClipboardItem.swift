@@ -42,6 +42,16 @@ class ClipboardItem: NSObject, Codable {
     var type: ItemType { .unknown }
     let types: [NSPasteboard.PasteboardType: Data]
     
+    static var defaultItems: [ClipboardItem] {
+        let item1 = NSPasteboardItem()
+        item1.setData("Test".data(using: .utf8)!, forType: .string)
+        let item2 = NSPasteboardItem()
+        item2.setData("Awesome!".data(using: .utf8)!, forType: .string)
+       
+        return [ClipboardItem(item: item1, source: NSRunningApplication.current),
+                ClipboardItem(item: item2, source: NSRunningApplication.current)]
+    }
+    
     static func itemClass(for types: [NSPasteboard.PasteboardType]) -> ClipboardItem.Type {
         if types.contains(.rtf) ||
            types.contains(.rtfd) {
@@ -74,6 +84,7 @@ class ClipboardItem: NSObject, Codable {
                 types[type] = data
             }
         }
+        
         self.types = types
         if let bundleURL = source.bundleURL {
             self.source = ItemSource(url: bundleURL)

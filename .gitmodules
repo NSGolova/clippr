@@ -1,3 +1,6 @@
 [submodule "lottie"]
 	path = lottie
-	url = https://github.com/radulov/lottie-ios.git
+	url = https://github.com/clario-tech/lottie-ios.git
+[submodule "lottieui"]
+	path = lottieui
+	url = https://github.com/clario-tech/LottieUI.git

@@ -11,7 +11,7 @@ import Cocoa
 class WindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet weak var tableView: NSTableView!
-    @objc dynamic var clipboard = Clipboard()
+    @objc dynamic var clipboard = Clipboard(items: [])
     @objc dynamic var closeButtonHidden = false
     
     @objc dynamic var searchPhrase: String?

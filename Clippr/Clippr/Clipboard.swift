@@ -13,12 +13,14 @@ class Clipboard: NSObject, Codable {
     private enum CodingKeys : String, CodingKey {
         case items
     }
-    @objc dynamic var items = [ClipboardItem]()
+    @objc dynamic var items: [ClipboardItem]
     var lastChangeCount = 0
     
     lazy var pasteboard = NSPasteboard.general
     
-    override init() {
+    init(items: [ClipboardItem]) {
+        self.items = items
+        
         super.init()
 
         lastChangeCount = pasteboard.changeCount
@@ -59,6 +61,10 @@ class Clipboard: NSObject, Codable {
         lastChangeCount += 1
         pasteboard.write(item: item)
 
+        Self.perfromKeyDown()
+    }
+    
+    static func perfromKeyDown() {
         let sourceRef = CGEventSource(stateID: .combinedSessionState)
         if sourceRef == nil {
             print("No event source")

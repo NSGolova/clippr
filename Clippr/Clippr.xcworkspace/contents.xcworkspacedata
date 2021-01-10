@@ -7,6 +7,9 @@
    <FileRef
       location = "group:../lottie/Lottie.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../lottieui/LottieUI.xcodeproj">
+   </FileRef>
    <Group
       location = "group:"
       name = "Github">
