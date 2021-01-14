@@ -98,13 +98,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             
             self.windowController?.openWindowAtCenter()
         }
+        
+        menuItem?.shutdownHandler = {
+            NSRunningApplication.current.forceTerminate()
+        }
+        
         menuItem?.install()
         
         setupShortcut()
         
         if !introShown {
+            Preferences.launchOnLogin = true
             handleOpen()
         }
+    }
+    
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        let eventDescriptor = NSAppleEventManager.shared().currentAppleEvent?.attributeDescriptor(forKeyword: "why?")
+        
+        if eventDescriptor?.typeCodeValue == "rest" || // Restart
+           eventDescriptor?.typeCodeValue == "shut" || // Shutdown
+           eventDescriptor?.typeCodeValue == "rlgo" {  // Logout
+            return .terminateNow
+        }
+        windowController?.close()
+        NSApp.setActivationPolicy(.accessory)
+        
+        return .terminateCancel
     }
     
     func handleOpen() {

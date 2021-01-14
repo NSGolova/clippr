@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ServiceManagement
 
 @objc
 enum SavingMethod: Int, Codable {
@@ -18,6 +19,15 @@ class Preferences: NSObject {
     @DefaultsStored("savingMethod") @objc dynamic static var savingMethod = SavingMethod.preferences
     @DefaultsStored("showTime") @objc dynamic static var showTimeInterval = 0.6
     @DefaultsStored("moveTime") @objc dynamic static var moveTimeInterval = 0.2
+    
+    @DefaultsStored("launchOnLogin")
+    @objc dynamic static var launchOnLogin = false {
+        didSet {
+            guard let agentBundleIdentifier = Bundle.main.bundleIdentifier as NSString? else { return }
+            
+            SMLoginItemSetEnabled(agentBundleIdentifier, launchOnLogin)
+        }
+    }
 }
 
 @propertyWrapper
