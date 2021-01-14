@@ -12,8 +12,6 @@
 		B90DD4422469EF7300DB7FDC /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4412469EF7300DB7FDC /* Defaults.swift */; };
 		B90DD4442469F60700DB7FDC /* ItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4432469F60700DB7FDC /* ItemSource.swift */; };
 		B90DD446246A02B300DB7FDC /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD445246A02B300DB7FDC /* Coding.swift */; };
-		B945571125A6EDD900897A04 /* LottieUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B945571025A6EDD900897A04 /* LottieUI.framework */; };
-		B945571225A6EDD900897A04 /* LottieUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B945571025A6EDD900897A04 /* LottieUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B945571625AB2C9800897A04 /* permission.png in Resources */ = {isa = PBXBuildFile; fileRef = B945571525AB2C9800897A04 /* permission.png */; };
 		B9A49975246CC154002E02BB /* NSPasteboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */; };
 		B9D11DC8246CE25800420FA6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D11DC6246CE25800420FA6 /* IntroViewController.swift */; };
@@ -64,7 +62,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B9D11DE3246CF57C00420FA6 /* Lottie.framework in Embed Frameworks */,
-				B945571225A6EDD900897A04 /* LottieUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9D11DE2246CF57C00420FA6 /* Lottie.framework in Frameworks */,
-				B945571125A6EDD900897A04 /* LottieUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +588,7 @@
 				CODE_SIGN_ENTITLEMENTS = Clippr/Clippr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1W;
 				DEVELOPMENT_TEAM = KMC5NA9YG7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Clippr/Info.plist;
@@ -600,6 +597,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -613,6 +611,7 @@
 				CODE_SIGN_ENTITLEMENTS = Clippr/Clippr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1W;
 				DEVELOPMENT_TEAM = KMC5NA9YG7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Clippr/Info.plist;
@@ -621,6 +620,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

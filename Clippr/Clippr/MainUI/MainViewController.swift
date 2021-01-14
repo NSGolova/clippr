@@ -32,6 +32,10 @@ class MainViewController: NSViewController {
         keylessWindow?.ableToKey = false
     }
     
+    @IBAction func showHistory(_ sender: Any) {
+        (NSApp.delegate as? AppDelegate)?.windowController?.showWindow(nil)
+    }
+    
 //    @IBAction func changeSavingMethod(_ sender: NSButton) {
 //        if let savingMethod = SavingMethod(rawValue: sender.tag) {
 //            Preferences.savingMethod = savingMethod

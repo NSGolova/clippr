@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var pressed: Bool = false
     
     @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard(items: ClipboardItem.defaultItems)
-    @DefaultsStored("introShown") @objc dynamic var introShown = false
+    @DefaultsStored("introShownW") @objc dynamic var introShown = false
     
     var introViewController: IntroViewController?
     lazy var mainViewController = MainViewController()
