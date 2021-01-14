@@ -24,50 +24,62 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     var windowController: WindowController?
     var menuItem: MenuItem?
-    var hotKey: EventHotKeyRef?
     var pressed: Bool = false
     
     @DefaultsStored("clipboard") @objc dynamic var clipboard = Clipboard(items: ClipboardItem.defaultItems)
     @DefaultsStored("introShown") @objc dynamic var introShown = false
     
-    var introViewController: IntroViewController?
-    lazy var mainViewController = MainViewController()
-
-    func registerShortcut() {
-        let hotKeyID = EventHotKeyID(signature: "clip", id: FourCharCode("clip"))
-
-        var hotKey: EventHotKeyRef? = nil
-        RegisterEventHotKey(UInt32(kVK_ANSI_V), UInt32(optionKey), hotKeyID, GetApplicationEventTarget(), 0, &hotKey)
-        self.hotKey = hotKey
+    var timer: Timer? {
+        didSet {
+            oldValue?.invalidate()
+        }
     }
     
+    var introViewController: IntroViewController?
+    lazy var mainViewController = MainViewController()
+    var lastCommandDate = NSDate()
+    
     func setupShortcut() {
-        var eventHandlerRef: EventHandlerRef?
-        var hotKeyPressedSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
+        NSEvent.addGlobalMonitorForEvents(matching: .flagsChanged) { [weak self] event in
+            guard let self = self else { return }
+            
+            self.process(event: event)
+        }
         
-        var eventHandlerRefRel: EventHandlerRef?
-        var hotKeyReleasedSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyReleased))
-        
-        InstallEventHandler(GetEventDispatcherTarget(), { _, event, _ -> OSStatus in
-            guard let delegate = (NSApp.delegate as? AppDelegate) else { return noErr }
-            delegate.pressed = true
-            if delegate.windowController?.window?.isVisible != true {
-                delegate.windowController?.showWindow(nil)
-            } else {
-                delegate.windowController?.moveDown(nil)
+        NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { [weak self] event -> NSEvent? in
+            guard let self = self else { return event }
+            
+            self.process(event: event)
+            self.window.makeKeyAndOrderFront(nil)
+            
+            return event
+        }
+    }
+    
+    func process(event: NSEvent) {
+        if event.modifierFlags.contains(.command) {
+            lastCommandDate = NSDate()
+            if timer == nil {
+                timer = Timer.scheduledTimer(withTimeInterval: Preferences.showTimeInterval, repeats: false, block: { [weak self] _ in
+                    guard let self = self else { return }
+                    if self.pressed {
+                        self.windowController?.close()
+                        self.pressed = false
+                    } else {
+                        self.windowController?.showWindow(nil)
+                        self.pressed = true
+                    }
+                })
             }
-            if let updatedClipboard = delegate.windowController?.clipboard {
-                delegate.clipboard = updatedClipboard
+        } else {
+            timer = nil
+            
+            guard pressed else { return }
+            if abs(lastCommandDate.timeIntervalSinceNow) >= Preferences.moveTimeInterval &&
+               windowController?.window?.isVisible == true {
+                windowController?.moveDown(nil)
             }
-            NSApp.activate(ignoringOtherApps: true)
-            return noErr
-        }, 1, &hotKeyPressedSpec, nil, &eventHandlerRef)
-        
-        InstallEventHandler(GetEventDispatcherTarget(), { _, event, context -> OSStatus in
-            return noErr
-        }, 1, &hotKeyReleasedSpec, nil, &eventHandlerRefRel)
-        
-        registerShortcut()
+        }
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -100,7 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         window.makeKeyAndOrderFront(nil)
         
-        if !introShown || !AXIsProcessTrusted() {
+        if !introShown {
             introViewController = IntroViewController()
             introViewController?.completion = { [weak self] in
                 guard let self = self else { return }

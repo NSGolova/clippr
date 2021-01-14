@@ -60,26 +60,5 @@ class Clipboard: NSObject, Codable {
     func paste(item: ClipboardItem) {
         lastChangeCount += 1
         pasteboard.write(item: item)
-
-        Self.perfromKeyDown()
-    }
-    
-    static func perfromKeyDown() {
-        let sourceRef = CGEventSource(stateID: .combinedSessionState)
-        if sourceRef == nil {
-            print("No event source")
-            return
-        }
-        let veeCode = kVK_ANSI_V
-        let eventDown = CGEvent(keyboardEventSource: sourceRef, virtualKey: CGKeyCode(veeCode), keyDown: true)
-        eventDown!.flags = CGEventFlags.maskCommand //  CGEventFlags(rawValue: CGEventFlags.maskCommand.rawValue | 0x000008)
-        let eventUp = CGEvent(keyboardEventSource: sourceRef, virtualKey: CGKeyCode(veeCode), keyDown: false)
-        eventUp!.flags = CGEventFlags.maskCommand
-        if let eventDown = eventDown {
-            eventDown.post(tap: .cghidEventTap)
-        }
-        if let eventUp = eventUp {
-            eventUp.post(tap: .cghidEventTap)
-        }
     }
 }

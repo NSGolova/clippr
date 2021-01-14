@@ -56,6 +56,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
         tableView.selectRowIndexes(NSIndexSet(index: rowToSelect) as IndexSet, byExtendingSelection: false)
         tableView.scrollRowToVisible(rowToSelect)
+        
+        guard tableView.selectedRow >= 0 else { return }
+        
+        clipboard.paste(item: clipboard.items[tableView.selectedRow])
     }
     
     func openWindowAtCenter() {
@@ -91,26 +95,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
         tableView.reloadData()
         lastActive = NSWorkspace.shared.runningApplications.first { $0.isActive }
-    }
-
-    func windowWillClose(_ notification: Notification) {
+        
         guard tableView.selectedRow >= 0 else { return }
         
         clipboard.paste(item: clipboard.items[tableView.selectedRow])
-    }
-    
-    override func flagsChanged(with event: NSEvent) {
-        lastActive?.activate(options: .activateIgnoringOtherApps)
-        
-        let itemToPaste = tableView.selectedRow >= 0 ? clipboard.items[tableView.selectedRow] : nil
-        
-        closeWindow(self)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            guard let itemToPaste = itemToPaste else { return }
-
-            self.clipboard.paste(item: itemToPaste)
-        }
     }
 }
 
