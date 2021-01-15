@@ -22,9 +22,11 @@ class Preferences: NSObject {
     @DefaultsStored("launchOnLogin")
     @objc dynamic static var launchOnLogin = false {
         didSet {
-            guard let agentBundleIdentifier = Bundle.main.bundleIdentifier as NSString? else { return }
-            
-            SMLoginItemSetEnabled(agentBundleIdentifier, launchOnLogin)
+            if launchOnLogin {
+                Loader.loadAgent()
+            } else {
+                Loader.unloadAgent()
+            }
         }
     }
 }

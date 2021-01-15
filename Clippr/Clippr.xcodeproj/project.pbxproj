@@ -13,6 +13,7 @@
 		B90DD4442469F60700DB7FDC /* ItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4432469F60700DB7FDC /* ItemSource.swift */; };
 		B90DD446246A02B300DB7FDC /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD445246A02B300DB7FDC /* Coding.swift */; };
 		B945571625AB2C9800897A04 /* permission.png in Resources */ = {isa = PBXBuildFile; fileRef = B945571525AB2C9800897A04 /* permission.png */; };
+		B955F22625B1B6A80096A1AB /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955F22525B1B6A80096A1AB /* Loader.swift */; };
 		B9A49975246CC154002E02BB /* NSPasteboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */; };
 		B9D11DC8246CE25800420FA6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D11DC6246CE25800420FA6 /* IntroViewController.swift */; };
 		B9D11DC9246CE25800420FA6 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D11DC7246CE25800420FA6 /* IntroViewController.xib */; };
@@ -76,6 +77,7 @@
 		B90DD445246A02B300DB7FDC /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		B945571025A6EDD900897A04 /* LottieUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LottieUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B945571525AB2C9800897A04 /* permission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission.png; sourceTree = "<group>"; };
+		B955F22525B1B6A80096A1AB /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Extensions.swift"; sourceTree = "<group>"; };
 		B9D11DC6246CE25800420FA6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B9D11DC7246CE25800420FA6 /* IntroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				B9F85A162468341600A3636A /* KeyWindow.swift */,
 				B90DD4412469EF7300DB7FDC /* Defaults.swift */,
 				B90DD445246A02B300DB7FDC /* Coding.swift */,
+				B955F22525B1B6A80096A1AB /* Loader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				B9F85A172468341600A3636A /* KeyWindow.swift in Sources */,
 				B9F85A242468865900A3636A /* WindowController.swift in Sources */,
 				B9D11DCC246CE27B00420FA6 /* MainViewController.swift in Sources */,
+				B955F22625B1B6A80096A1AB /* Loader.swift in Sources */,
 				B9F85A1C2468369B00A3636A /* Clipboard.swift in Sources */,
 				B90DD43E2469C65700DB7FDC /* MenuItem.swift in Sources */,
 				B90DD4422469EF7300DB7FDC /* Defaults.swift in Sources */,
@@ -597,8 +601,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -620,8 +624,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

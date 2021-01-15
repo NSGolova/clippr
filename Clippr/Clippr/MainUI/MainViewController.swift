@@ -26,6 +26,18 @@ class MainViewController: NSViewController {
     @objc
     func keyPathsForValuesAffectingSaveToPreferences() -> Set<String> { ["Preferences.savingMethod"] }
     
+    @objc dynamic var launchOnLogin: Bool {
+        get {
+            Preferences.launchOnLogin
+        }
+        set {
+            Preferences.launchOnLogin = newValue
+        }
+    }
+    
+    @objc
+    func keyPathsForValuesAffectingLaunchOnLogin() -> Set<String> { ["Preferences.launchOnLogin"] }
+    
     var keylessWindow: KeylessWindow? { view.window as? KeylessWindow }
     
     override func viewDidAppear() {

@@ -70,6 +70,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         registerShortcut()
     }
     
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        guard let bundleIdentifier = Bundle.main.bundleIdentifier else { return }
+        NSRunningApplication.runningApplications(withBundleIdentifier: bundleIdentifier).forEach {
+            if NSRunningApplication.current != $0 {
+                $0.activate(options: .activateIgnoringOtherApps)
+                NSRunningApplication.current.forceTerminate()
+            }
+        }
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
         
