@@ -12,6 +12,9 @@
 		B90DD4422469EF7300DB7FDC /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4412469EF7300DB7FDC /* Defaults.swift */; };
 		B90DD4442469F60700DB7FDC /* ItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD4432469F60700DB7FDC /* ItemSource.swift */; };
 		B90DD446246A02B300DB7FDC /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90DD445246A02B300DB7FDC /* Coding.swift */; };
+		B945583225B0C40200897A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B945583125B0C40200897A04 /* Assets.xcassets */; };
+		B945584725B0C59200897A04 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945584625B0C59200897A04 /* main.swift */; };
+		B945585525B0C70F00897A04 /* ClipprLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = B945582B25B0C3FF00897A04 /* ClipprLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B9A49975246CC154002E02BB /* NSPasteboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */; };
 		B9D11DC8246CE25800420FA6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D11DC6246CE25800420FA6 /* IntroViewController.swift */; };
 		B9D11DC9246CE25800420FA6 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D11DC7246CE25800420FA6 /* IntroViewController.xib */; };
@@ -37,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B945584125B0C43400897A04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F859E1246833AD00A3636A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B945582A25B0C3FF00897A04;
+			remoteInfo = ClipprLauncher;
+		};
 		B9F859FA246833AE00A3636A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B9F859E1246833AD00A3636A /* Project object */;
@@ -54,6 +64,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B945585425B0C6D200897A04 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				B945585525B0C70F00897A04 /* ClipprLauncher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9D11DE4246CF57C00420FA6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,6 +94,11 @@
 		B90DD4432469F60700DB7FDC /* ItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSource.swift; sourceTree = "<group>"; };
 		B90DD445246A02B300DB7FDC /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		B945571025A6EDD900897A04 /* LottieUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LottieUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B945582B25B0C3FF00897A04 /* ClipprLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipprLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B945583125B0C40200897A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B945583625B0C40200897A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B945583725B0C40200897A04 /* ClipprLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipprLauncher.entitlements; sourceTree = "<group>"; };
+		B945584625B0C59200897A04 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B9A49974246CC154002E02BB /* NSPasteboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Extensions.swift"; sourceTree = "<group>"; };
 		B9D11DC6246CE25800420FA6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B9D11DC7246CE25800420FA6 /* IntroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
@@ -105,6 +130,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B945582825B0C3FF00897A04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9F859E6246833AD00A3636A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,6 +198,17 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		B945582C25B0C40000897A04 /* ClipprLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				B945584625B0C59200897A04 /* main.swift */,
+				B945583125B0C40200897A04 /* Assets.xcassets */,
+				B945583625B0C40200897A04 /* Info.plist */,
+				B945583725B0C40200897A04 /* ClipprLauncher.entitlements */,
+			);
+			path = ClipprLauncher;
+			sourceTree = "<group>";
+		};
 		B9D11DC5246CE22000420FA6 /* MainUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +246,7 @@
 				B9F859EB246833AD00A3636A /* Clippr */,
 				B9F859FC246833AE00A3636A /* ClipprTests */,
 				B9F85A07246833AE00A3636A /* ClipprUITests */,
+				B945582C25B0C40000897A04 /* ClipprLauncher */,
 				B9F859EA246833AD00A3636A /* Products */,
 				B9D11DE0246CF57C00420FA6 /* Frameworks */,
 			);
@@ -214,6 +258,7 @@
 				B9F859E9246833AD00A3636A /* Clippr.app */,
 				B9F859F9246833AE00A3636A /* ClipprTests.xctest */,
 				B9F85A04246833AE00A3636A /* ClipprUITests.xctest */,
+				B945582B25B0C3FF00897A04 /* ClipprLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +314,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B945582A25B0C3FF00897A04 /* ClipprLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B945583A25B0C40200897A04 /* Build configuration list for PBXNativeTarget "ClipprLauncher" */;
+			buildPhases = (
+				B945582725B0C3FF00897A04 /* Sources */,
+				B945582825B0C3FF00897A04 /* Frameworks */,
+				B945582925B0C3FF00897A04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClipprLauncher;
+			productName = ClipprLauncher;
+			productReference = B945582B25B0C3FF00897A04 /* ClipprLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B9F859E8246833AD00A3636A /* Clippr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9F85A0D246833AE00A3636A /* Build configuration list for PBXNativeTarget "Clippr" */;
@@ -277,10 +339,12 @@
 				B9F859E6246833AD00A3636A /* Frameworks */,
 				B9F859E7246833AD00A3636A /* Resources */,
 				B9D11DE4246CF57C00420FA6 /* Embed Frameworks */,
+				B945585425B0C6D200897A04 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B945584225B0C43400897A04 /* PBXTargetDependency */,
 			);
 			name = Clippr;
 			productName = Clippr;
@@ -329,10 +393,13 @@
 		B9F859E1246833AD00A3636A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Viktor Radulov";
 				TargetAttributes = {
+					B945582A25B0C3FF00897A04 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					B9F859E8246833AD00A3636A = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -362,11 +429,20 @@
 				B9F859E8246833AD00A3636A /* Clippr */,
 				B9F859F8246833AE00A3636A /* ClipprTests */,
 				B9F85A03246833AE00A3636A /* ClipprUITests */,
+				B945582A25B0C3FF00897A04 /* ClipprLauncher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B945582925B0C3FF00897A04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B945583225B0C40200897A04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9F859E7246833AD00A3636A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +473,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B945582725B0C3FF00897A04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B945584725B0C59200897A04 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9F859E5246833AD00A3636A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +524,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B945584225B0C43400897A04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B945582A25B0C3FF00897A04 /* ClipprLauncher */;
+			targetProxy = B945584125B0C43400897A04 /* PBXContainerItemProxy */;
+		};
 		B9F859FB246833AE00A3636A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B9F859E8246833AD00A3636A /* Clippr */;
@@ -464,6 +553,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B945583825B0C40200897A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ClipprLauncher/ClipprLauncher.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1A;
+				DEVELOPMENT_TEAM = KMC5NA9YG7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ClipprLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.ClipprLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B945583925B0C40200897A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ClipprLauncher/ClipprLauncher.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1A;
+				DEVELOPMENT_TEAM = KMC5NA9YG7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ClipprLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.ClipprLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		B9F85A0B246833AE00A3636A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -514,7 +659,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -568,7 +713,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -582,6 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Clippr/Clippr.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1A;
@@ -593,9 +739,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -605,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Clippr/Clippr.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1A;
@@ -616,9 +764,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nsgolova.Clippr;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.golova.Clippr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -706,6 +855,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B945583A25B0C40200897A04 /* Build configuration list for PBXNativeTarget "ClipprLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B945583825B0C40200897A04 /* Debug */,
+				B945583925B0C40200897A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B9F859E4246833AD00A3636A /* Build configuration list for PBXProject "Clippr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -23,10 +23,15 @@ class Preferences: NSObject {
     @DefaultsStored("launchOnLogin")
     @objc dynamic static var launchOnLogin = false {
         didSet {
-            guard let agentBundleIdentifier = Bundle.main.bundleIdentifier as NSString? else { return }
+            guard let agentBundleIdentifier = agentBundle()?.bundleIdentifier as NSString? else { return }
             
             SMLoginItemSetEnabled(agentBundleIdentifier, launchOnLogin)
         }
+    }
+    
+    static private func agentBundle() -> Bundle? {
+        let bundleUrl = Bundle.main.bundleURL.appendingPathComponent("Contents/Library/LoginItems/ClipprLauncher.app")
+        return Bundle(path: bundleUrl.path)
     }
 }
 
